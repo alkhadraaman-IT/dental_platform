@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  body {
+    @apply bg-background text-text-primary;
+    font-family: 'Cairo', 'Tajawal', system-ui, -apple-system, sans-serif;
+  }
+  
+  /* تخصيص شريط التمرير */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-dark;
+  }
+}
+
+
+/* ========== استيراد خط Amiri ========== */
+@font-face {
+  font-family: 'Amiri';
+  src: url('./assets/fonts/Amiri/Amiri-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Amiri';
+  src: url('./assets/fonts/Amiri/Amiri-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Amiri';
+  src: url('./assets/fonts/Amiri/Amiri-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Amiri';
+  src: url('./assets/fonts/Amiri/Amiri-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+@layer components {
+  /* كلاس عام للأزرار - أخضر فاتح */
+  .btn-primary {
+    @apply bg-primary text-text-primary rounded-xl w-1/3 py-3 px-6 font-semibold 
+           transition-all duration-300 hover:shadow-green-hover hover:bg-primary-dark;
+  }
+  
+  /* زر بحجم تلت العرض */
+  .btn-third {
+    @apply bg-primary text-text-primary rounded-xl w-1/3 py-3 px-6 font-semibold 
+           transition-all duration-300 hover:shadow-green-hover hover:bg-primary-dark;
+  }
+  
+  /* زر بحجم نصف العرض */
+  .btn-half {
+    @apply bg-primary text-text-primary rounded-xl w-1/2 py-3 px-6 font-semibold 
+           transition-all duration-300 hover:shadow-green-hover hover:bg-primary-dark;
+  }
+  
+  /* زر بحجم كامل */
+  .btn-full {
+    @apply bg-primary text-text-primary rounded-xl w-full py-3 px-6 font-semibold 
+           transition-all duration-300 hover:shadow-green-hover hover:bg-primary-dark;
+  }
+  
+  /* كلاس للتبويبات */
+  .tab-primary {
+    @apply text-text-primary font-medium py-2 px-4 rounded-lg 
+           transition-all duration-300 hover:shadow-green-hover cursor-pointer;
+  }
+  
+  .tab-active {
+    @apply bg-secondary text-text-primary;
+  }
+  
+  /* كلاس لحقول الإدخال */
+  .input-primary {
+    @apply w-full bg-background border-2 border-secondary rounded-xl px-4 py-3 
+           focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary
+           transition-all duration-300;
+  }
+  
+  /* كلاس للبطاقات */
+  .card-primary {
+    @apply bg-card rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300;
+  }
+  
+  /* حاوية متجاوبة */
+  .container-custom {
+    @apply container mx-auto px-4 max-w-7xl;
+  }
+  
+  /* خلفية كرت */
+  .bg-soft {
+    @apply bg-background;
+  }
+
+  @media print {
+  /* إخفاء الأزرار والعناصر التي لا نحتاجها في الورقة */
+  .print\:hidden {
+    display: none !important;
+  }
+  
+  /* تحسين مظهر الحاويات للطباعة */
+  .bg-background {
+    background-color: white !important;
+  }
+  
+  /* إزالة أي تأثيرات زينة خلفية */
+  canvas, .decorative-blobs {
+    display: none !important;
+  }
+
+  body {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .max-w-3xl {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+}
